@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { Item } from "./item";
 import { ItemService } from "./item.service";
@@ -7,13 +7,14 @@ import { ItemService } from "./item.service";
     selector: "ns-items",
     moduleId: module.id,
     templateUrl: "./items.component.html",
+    styleUrls: ['./items.component.css']
 })
-export class ItemsComponent implements OnInit {
-    items: Item[];
+export class ItemsComponent {
+    selected: number = 1;
 
     constructor(private itemService: ItemService) { }
 
-    ngOnInit(): void {
-        this.items = this.itemService.getItems();
+    check(id: number): void {
+        this.selected = id;
     }
 }

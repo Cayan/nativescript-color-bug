@@ -1,10 +1,12 @@
 <ActionBar title="My App" class="action-bar">
 </ActionBar>
 <StackLayout class="page">
-    <ListView [items]="items" class="list-group">
-        <ng-template let-item="item">
-            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
-                class="list-group-item"></Label>
-        </ng-template>
-    </ListView>
+    <GridLayout columns="*, *" class="options">
+        <StackLayout col="0" [class]="selected == 1 ? 'red' : ''">
+            <Button text="Button 1" (tap)="check(1)"></Button>
+        </StackLayout>
+        <StackLayout col="1" [class]="selected == 2 ? 'red' : ''" >
+            <Button text="Button 2" (tap)="check(2)"></Button>
+        </StackLayout>
+    </GridLayout>
 </StackLayout>
